@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gameapi
+  profiles:
+    active: prod
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+    operationsSorter: alpha
+    tagsSorter: alpha
+
+jwt:
+  secret: "change-me-in-prod-32-chars-minimum-secret-key-123456"
+  expiration: 3600000

@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  sprint4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sprint4:latest
+    container_name: sprint4
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      DB_HOST: mysql_db
