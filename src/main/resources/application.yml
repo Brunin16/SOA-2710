@@ -2,7 +2,7 @@ spring:
   application:
     name: gameapi
   profiles:
-    active: prod
+    active: dev
 
 springdoc:
   swagger-ui:
