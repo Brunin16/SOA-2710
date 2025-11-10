@@ -3,10 +3,10 @@
 cd "$(dirname "$BASH_SOURCE")" || exit 1
 
 
-if docker network inspect "brunin" >/dev/null 2>&1; then
+if docker network inspect "gameapi" >/dev/null 2>&1; then
   echo "network existente"
 else
-  docker network create brunin
+  docker network create gameapi
 fi
 
 echo "Iniciando Mysql"

@@ -38,4 +38,3 @@ BEGIN
         SELECT seq_player.NEXTVAL INTO :new.id_player FROM dual;
     END IF;
 END;
-/

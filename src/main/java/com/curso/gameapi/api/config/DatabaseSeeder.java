@@ -1,11 +1,9 @@
 package com.curso.gameapi.api.config;
 
-import com.curso.gameapi.dto.GameMapper;
 import com.curso.gameapi.dto.GameRequest;
 import com.curso.gameapi.dto.GameResponse;
 import com.curso.gameapi.dto.PlayerRequest;
 import com.curso.gameapi.models.Game;
-import com.curso.gameapi.models.Player;
 import com.curso.gameapi.service.GameService;
 import com.curso.gameapi.service.PlayerService;
 import lombok.RequiredArgsConstructor;

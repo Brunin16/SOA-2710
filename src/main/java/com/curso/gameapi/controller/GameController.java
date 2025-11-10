@@ -1,10 +1,7 @@
 package com.curso.gameapi.controller;
 
-import com.curso.gameapi.dto.GameMapper;
 import com.curso.gameapi.dto.GameRequest;
 import com.curso.gameapi.dto.GameResponse;
-import com.curso.gameapi.models.Game;
-import com.curso.gameapi.repository.GameRepository;
 import com.curso.gameapi.service.GameService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -12,11 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.net.URI;
-import java.time.Year;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/api/games")

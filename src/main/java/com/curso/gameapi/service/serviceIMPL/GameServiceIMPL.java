@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.net.URI;
 import java.time.Year;
 import java.util.List;
 
@@ -62,7 +61,6 @@ public class GameServiceIMPL implements GameService {
     @Override
     public GameResponse create(GameRequest g) {
         Game saved = gr.save(GameMapper.toEntity(g));
-        URI location = URI.create("/api/games/" + saved.getIdGame());
         return GameMapper.toResponse(saved);
     }
 }

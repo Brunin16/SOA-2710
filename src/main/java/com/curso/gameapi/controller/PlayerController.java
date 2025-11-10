@@ -1,10 +1,7 @@
 package com.curso.gameapi.controller;
 
-import com.curso.gameapi.dto.PlayerMapper;
 import com.curso.gameapi.dto.PlayerRequest;
 import com.curso.gameapi.dto.PlayerResponse;
-import com.curso.gameapi.models.Player;
-import com.curso.gameapi.repository.PlayerRepository;
 import com.curso.gameapi.service.PlayerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,10 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/api/players")

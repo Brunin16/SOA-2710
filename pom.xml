@@ -132,6 +132,12 @@
 			<version>11.14.1</version>
 			<scope>runtime</scope>
 		</dependency>
+		<plugin>
+  <groupId>org.flywaydb</groupId>
+  <artifactId>flyway-maven-plugin</artifactId>
+  <version>9.16.0</version>
+</plugin>
+
 
 		<!-- Test -->
 		<dependency>

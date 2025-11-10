@@ -11,4 +11,12 @@ services:
       - "8080:8080"
     restart: unless-stopped
     environment:
-      DB_HOST: mysql_db
+      SPRING_PROFILES_ACTIVE: stg
+      DB_HOST: mysql
+    networks:
+      - gameapi
+
+networks:
+  gameapi:
+    external: true
+

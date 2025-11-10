@@ -5,13 +5,13 @@ import com.curso.gameapi.dto.PlayerRequest;
 import com.curso.gameapi.dto.PlayerResponse;
 import com.curso.gameapi.exceptions.NotFoundException;
 import com.curso.gameapi.models.Player;
+import com.curso.gameapi.repository.GameRepository;
 import com.curso.gameapi.repository.PlayerRepository;
 import com.curso.gameapi.service.PlayerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.net.URI;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -21,6 +21,7 @@ import static java.util.stream.Collectors.toList;
 public class PlayerServiceIMPL implements PlayerService {
 
     private final PlayerRepository repository;
+    private final GameRepository gr;
 
 
     @Override
@@ -34,7 +35,7 @@ public class PlayerServiceIMPL implements PlayerService {
     public PlayerResponse getById(Integer id) {
         return repository.findById(id)
                 .map(player -> ResponseEntity.ok(PlayerMapper.toResponse(player)))
-                .orElseThrow(() -> new NotFoundException("Game não encontrado.")).getBody();
+                .orElseThrow(() -> new NotFoundException("Player não encontrado.")).getBody();
     }
 
     @Override
@@ -62,9 +63,14 @@ public class PlayerServiceIMPL implements PlayerService {
     }
 
     @Override
-    public PlayerResponse create(PlayerRequest g) {
-        Player saved = repository.save(PlayerMapper.toEntity(g));
-        URI location = URI.create("/api/players/" + saved.getIdPlayer());
+    public PlayerResponse create(PlayerRequest req) {
+        Player player = PlayerMapper.toEntity(req);
+
+        player.setGameFav(gr.findById(req.gameFav().getIdGame())
+                    .orElseThrow(() -> new NotFoundException("Game não encontrado com id: " + req.gameFav().getIdGame())));
+
+        Player saved = repository.save(player);
         return PlayerMapper.toResponse(saved);
     }
+
 }

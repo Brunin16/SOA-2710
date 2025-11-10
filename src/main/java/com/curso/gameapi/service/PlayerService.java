@@ -1,7 +1,5 @@
 package com.curso.gameapi.service;
 
-import com.curso.gameapi.dto.GameRequest;
-import com.curso.gameapi.dto.GameResponse;
 import com.curso.gameapi.dto.PlayerRequest;
 import com.curso.gameapi.dto.PlayerResponse;
 
